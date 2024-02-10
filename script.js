@@ -26,11 +26,16 @@ buttons.forEach((button) => {
         input.value = calculation
         break
       case 'DEL':
+        if (typeof calculation === 'number') {
+          input.value = ''
+          calculation = ''
+          break
+        }
         calculation = calculation.slice(0, -1)
         input.value = calculation
         break
       default:
-        calculation += btnValue === 'X' ? '*' : btnValue
+        calculation += btnValue === 'x' ? '*' : btnValue
         input.value = calculation
     }
   })
